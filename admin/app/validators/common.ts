@@ -13,7 +13,7 @@ import vine from '@vinejs/vine'
  */
 export function assertNotPrivateUrl(urlString: string): void {
   const parsed = new URL(urlString)
-  const hostname = parsed.hostname.toLowerCase()
+  const hostname = parsed.hostname.toLowerCase().replace(/\.+$/, '')
 
   const blockedPatterns = [
     /^localhost$/,
